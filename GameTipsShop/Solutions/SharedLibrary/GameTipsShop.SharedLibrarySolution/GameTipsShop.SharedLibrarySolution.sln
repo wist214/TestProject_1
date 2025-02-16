@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameTipsShop.SharedLibrary", "GameTipsShop.SharedLibrary\GameTipsShop.SharedLibrary.csproj", "{4309D9DD-587D-43F9-A5C1-B0450D4A7A4A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4309D9DD-587D-43F9-A5C1-B0450D4A7A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4309D9DD-587D-43F9-A5C1-B0450D4A7A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4309D9DD-587D-43F9-A5C1-B0450D4A7A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4309D9DD-587D-43F9-A5C1-B0450D4A7A4A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5ECE017D-C9A4-4CD4-BC0B-12A92793DA6B}
+	EndGlobalSection
+EndGlobal
