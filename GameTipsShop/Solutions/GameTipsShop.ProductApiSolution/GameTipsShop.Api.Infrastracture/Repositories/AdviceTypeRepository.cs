@@ -9,7 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace GameTipsShop.Api.Infrastructure.Repositories
 {
-    public class AdviceTypeRepository(AdviceTypeDbContext context) : IAdviceType
+    public class AdviceTypeRepository(AdviceTypeDbContext context) : IAdviceTypeRepository
     {
         public async Task<Response> CreateAsync(AdviceType entity)
         {

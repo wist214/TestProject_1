@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using GameTipsShop.Api.Application.Interfaces;
+﻿using GameTipsShop.Api.Application.Interfaces;
 using GameTipsShop.Api.Infrastructure.Data;
 using GameTipsShop.Api.Infrastructure.Repositories;
 using GameTipsShop.SharedLibrary.DependencyInjection;
@@ -19,7 +14,7 @@ namespace GameTipsShop.Api.Infrastructure.DependencyInjection
         {
             SharedServiceContainer.AddSharedServices<AdviceTypeDbContext>(services, config, config["MySerilog:FileName"]!);
 
-            services.AddScoped<IAdviceType, AdviceTypeRepository>();
+            services.AddScoped<IAdviceTypeRepository, AdviceTypeRepository>();
 
             return services;
         }

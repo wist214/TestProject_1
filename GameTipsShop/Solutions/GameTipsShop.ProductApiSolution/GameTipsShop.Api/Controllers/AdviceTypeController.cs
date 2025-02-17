@@ -1,44 +1,42 @@
-﻿using GameTipsShop.Api.Application.DTOs;
+﻿using GameTipsShop.Api.Application.Commands;
+using GameTipsShop.Api.Application.DTOs;
 using GameTipsShop.Api.Application.DTOs.Conversions;
-using GameTipsShop.Api.Application.Interfaces;
+using GameTipsShop.Api.Application.Queries;
 using GameTipsShop.SharedLibrary.Responses;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameTipsShop.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AdviceTypeController(IAdviceType adviceTypeInterface) : ControllerBase
+    public class AdviceTypeController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AdviceTypeDTO>>> GetAdviceTypes()
-        {
-            var adviceTypes = await adviceTypeInterface.GetAllAsync();
+        { 
+            var adviceTypes = await mediator.Send(new GetAllAdviceTypesQuery());
 
             if (!adviceTypes.Any())
             {
                 return NotFound($"No advice types were found in database");
             }
 
-            var (_, list) = AdviceTypeConversion.FromEntity(null, adviceTypes);
-
-            return list!.Any() ? Ok(list) : NotFound($"No product found");
+            return adviceTypes!.Any() ? Ok(adviceTypes) : NotFound($"No product found");
         }
 
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<AdviceTypeDTO>> GetAdviceType(int id)
         {
-            var adviceType = await adviceTypeInterface.FindByIdAsync(id);
+            var adviceType = await mediator.Send(new GetAdviceTypeQuery(id));
 
             if (adviceType is null)
             {
                 return NotFound($"Not found");
             }
 
-            var (singleAdviceType, _) = AdviceTypeConversion.FromEntity(adviceType, null);
-
-            return singleAdviceType is not null ? Ok(singleAdviceType) : NotFound($"No product found");
+            return adviceType is not null ? Ok(adviceType) : NotFound($"No product found");
         }
 
         [HttpPost]
@@ -50,8 +48,8 @@ namespace GameTipsShop.Api.Controllers
             }
 
             var adviceType = AdviceTypeConversion.ToEntity(adviceTypeDTO);
-            var result = await adviceTypeInterface.CreateAsync(adviceType);
 
+            var result = await mediator.Send(new AddAdviceTypeCommand(adviceType));
             return result.Flag ? Ok(result) : BadRequest(result.Message);
         }
 
@@ -64,7 +62,7 @@ namespace GameTipsShop.Api.Controllers
             }
 
             var adviceType = AdviceTypeConversion.ToEntity(adviceTypeDTO);
-            var result = await adviceTypeInterface.UpdateAsync(adviceType);
+            var result = await mediator.Send(new UpdateAdviceTypeCommand(adviceType));
 
             return result.Flag ? Ok(result) : BadRequest(result.Message);
         }
@@ -78,7 +76,7 @@ namespace GameTipsShop.Api.Controllers
             }
 
             var adviceType = AdviceTypeConversion.ToEntity(adviceTypeDTO);
-            var result = await adviceTypeInterface.DeleteAsync(adviceType);
+            var result = await mediator.Send(new DeleteAdviceTypeCommand(adviceType));
 
             return result.Flag ? Ok(result) : BadRequest(result.Message);
         }

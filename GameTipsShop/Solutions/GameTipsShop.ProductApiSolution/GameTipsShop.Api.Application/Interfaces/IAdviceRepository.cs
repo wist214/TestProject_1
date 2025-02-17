@@ -3,5 +3,5 @@ using GameTipsShop.SharedLibrary.Interface;
 
 namespace GameTipsShop.Api.Application.Interfaces
 {
-    public interface IAdvice : IGenericInterface<Advice> { }
+    public interface IAdviceRepository : IRepository<Advice> { }
 }

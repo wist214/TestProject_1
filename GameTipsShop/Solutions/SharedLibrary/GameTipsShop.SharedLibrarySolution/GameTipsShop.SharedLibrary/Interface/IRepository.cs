@@ -3,7 +3,7 @@ using Response = GameTipsShop.SharedLibrary.Responses.Response;
 
 namespace GameTipsShop.SharedLibrary.Interface
 {
-    public interface IGenericInterface<T> where T : class
+    public interface IRepository<T> where T : class
     {
         Task<Response> CreateAsync(T entity);
         Task<Response> UpdateAsync(T entity);

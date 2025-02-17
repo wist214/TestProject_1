@@ -1,3 +1,4 @@
+using GameTipsShop.Api.Application.DependencyInjection;
 using GameTipsShop.Api.Infrastructure.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureService(builder.Configuration);
+builder.Services.AddApplicationService(builder.Configuration);
 var app = builder.Build();
 
 app.UseInfrastructurePolicy();
