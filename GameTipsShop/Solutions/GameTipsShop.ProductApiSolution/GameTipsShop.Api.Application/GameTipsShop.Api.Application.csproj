@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\SharedLibrary\GameTipsShop.SharedLibrarySolution\GameTipsShop.SharedLibrary\GameTipsShop.SharedLibrary.csproj" />
-    <ProjectReference Include="..\ProductApi.Domain\GameTipsShop.Api.Domain.csproj" />
+    <ProjectReference Include="..\GameTipsShop.Api.Domain\GameTipsShop.Api.Domain.csproj" />
   </ItemGroup>
 
 </Project>

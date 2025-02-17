@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProductApi.Application\GameTipsShop.Api.Application.csproj" />
+    <ProjectReference Include="..\GameTipsShop.Api.Application\GameTipsShop.Api.Application.csproj" />
   </ItemGroup>
 
 </Project>

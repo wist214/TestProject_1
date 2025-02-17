@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProductApi.Infrastracture\GameTipsShop.Api.Infrastructure.csproj" />
+    <ProjectReference Include="..\GameTipsShop.Api.Infrastracture\GameTipsShop.Api.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
